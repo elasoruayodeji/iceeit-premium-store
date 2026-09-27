@@ -1,0 +1,1 @@
+Put your real ICEEIT product images in this folder. Then update paths in src/data/products.js.
