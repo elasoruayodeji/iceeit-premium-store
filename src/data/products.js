@@ -1,14 +1,16 @@
 export const products = [
   {
     id: "complete-jacket-wear",
-    name: "Complete Jacket Wear",
+    name: "Cosmic Splatter",
     category: "Outerwear",
     price: 140000,
     colors: [],
-    image: "/images/placeholders/complete-jacket-wear.webp",
+    video: "/videos/complete-jacket-wear.mp4",
+    image: "/images/jacket-front.jpg",
     gallery: [
-      "/images/placeholders/complete-jacket-wear.webp",
-      "/images/placeholders/complete-jacket-wear-2.webp"
+      { type: "video", src: "/videos/complete-jacket-wear.mp4" },
+      { type: "image", src: "/images/jacket-front.jpg" },
+      { type: "image", src: "/images/jacket-side.jpg" }
     ],
     description: "A complete ICEEIT outerwear look built around a strong, cold-weather streetwear silhouette.",
     details: ["Premium streetwear silhouette", "Designed as a complete look", "Care and material details can be updated here"],
@@ -20,8 +22,12 @@ export const products = [
     category: "Tops",
     price: 30000,
     colors: ["White", "Black"],
-    image: "/images/placeholders/round-neck.webp",
-    gallery: ["/images/placeholders/round-neck.webp"],
+    video: "/videos/round-neck.mp4",
+    image: "/images/look-roundneck-joggers.jpg",
+    gallery: [
+      { type: "video", src: "/videos/round-neck.mp4" },
+      { type: "image", src: "/images/look-roundneck-joggers.jpg" }
+    ],
     description: "A clean everyday ICEEIT essential with a minimal silhouette and recognizable brand presence.",
     details: ["Available in White and Black", "Everyday streetwear essential", "Care and material details can be updated here"],
     featured: true
@@ -32,8 +38,11 @@ export const products = [
     category: "Tops",
     price: 25000,
     colors: ["Purple", "Blue", "Green"],
-    image: "/images/placeholders/sleeveless-top.webp",
-    gallery: ["/images/placeholders/sleeveless-top.webp"],
+    video: "/videos/sleeveless-top.mp4",
+    image: "",
+    gallery: [
+      { type: "video", src: "/videos/sleeveless-top.mp4" }
+    ],
     description: "A sharper warm-weather layer designed to keep the ICEEIT attitude lightweight and easy to style.",
     details: ["Available in Purple, Blue and Green", "Lightweight streetwear piece", "Care and material details can be updated here"],
     featured: true
@@ -44,8 +53,11 @@ export const products = [
     category: "Tops",
     price: 15000,
     colors: [],
-    image: "/images/placeholders/tank-top.webp",
-    gallery: ["/images/placeholders/tank-top.webp"],
+    video: "/videos/tank-top.mp4",
+    image: "",
+    gallery: [
+      { type: "video", src: "/videos/tank-top.mp4" }
+    ],
     description: "A straightforward ICEEIT staple made for relaxed styling and everyday rotation.",
     details: ["Versatile everyday piece", "Streetwear-focused fit", "Care and material details can be updated here"],
     featured: false
@@ -56,8 +68,13 @@ export const products = [
     category: "Bottoms",
     price: 60000,
     colors: [],
-    image: "/images/placeholders/double-band-joggers.webp",
-    gallery: ["/images/placeholders/double-band-joggers.webp"],
+    video: "/videos/double-band-joggers.mp4",
+    image: "/images/look-roundneck-joggers.jpg",
+    gallery: [
+      { type: "video", src: "/videos/double-band-joggers.mp4" },
+      { type: "image", src: "/images/look-roundneck-joggers.jpg" },
+      { type: "image", src: "/images/look-jersey-joggers.jpg" }
+    ],
     description: "Statement joggers built around the signature double-band detail and a strong streetwear profile.",
     details: ["Signature double-band detail", "Designed for casual styling", "Care and material details can be updated here"],
     featured: true
@@ -68,11 +85,30 @@ export const products = [
     category: "Tops",
     price: 30000,
     colors: [],
-    image: "/images/placeholders/jersey.webp",
-    gallery: ["/images/placeholders/jersey.webp"],
+    video: "/videos/jersey.mp4",
+    image: "/images/look-jersey-joggers.jpg",
+    gallery: [
+      { type: "video", src: "/videos/jersey.mp4" },
+      { type: "image", src: "/images/look-jersey-joggers.jpg" }
+    ],
     description: "A relaxed ICEEIT jersey that brings sport-inspired energy into the brand's streetwear language.",
     details: ["Sport-inspired silhouette", "Easy casual styling", "Care and material details can be updated here"],
     featured: true
+  },
+  {
+    id: "monogram-denim-coord",
+    name: "Monogram Denim Co-ord",
+    category: "Outerwear",
+    price: 140000,
+    colors: [],
+    video: "",
+    image: "/images/monogram-denim-coord.jpg",
+    gallery: [
+      { type: "image", src: "/images/monogram-denim-coord.jpg" }
+    ],
+    description: "A monogram-patterned co-ord set built around the ICEEIT cold identity — matching jacket and joggers in a signature repeat print.",
+    details: ["One size", "Matching co-ord set", "Care and material details can be updated here"],
+    featured: false
   }
 ];
 

@@ -6,6 +6,7 @@ import { CartProvider } from "./context/CartContext";
 import { Navbar } from "./components/Navbar";
 import { Footer } from "./components/Footer";
 import { CartDrawer } from "./components/CartDrawer";
+import { PageTransition } from "./components/Motion";
 import Home from "./pages/Home";
 import Shop from "./pages/Shop";
 import Product from "./pages/Product";
@@ -20,35 +21,27 @@ import "./styles/global.css";
 
 function AppRoutes() {
   const location = useLocation();
-  return (
-    <>
-      <Navbar />
-      <AnimatePresence mode="wait">
-        <Routes location={location} key={location.pathname}>
-          <Route path="/" element={<Home/>}/>
-          <Route path="/shop" element={<Shop/>}/>
-          <Route path="/product/:id" element={<Product/>}/>
-          <Route path="/collections" element={<Collections/>}/>
-          <Route path="/about" element={<About/>}/>
-          <Route path="/cart" element={<Cart/>}/>
-          <Route path="/checkout" element={<Checkout/>}/>
-          <Route path="/contact" element={<Contact/>}/>
-          <Route path="/faq" element={<FAQ/>}/>
-          <Route path="*" element={<NotFound/>}/>
-        </Routes>
-      </AnimatePresence>
-      <CartDrawer />
-      <Footer />
-    </>
-  );
+  return <>
+    <Navbar />
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        <Route path="/" element={<PageTransition><Home /></PageTransition>} />
+        <Route path="/shop" element={<PageTransition><Shop /></PageTransition>} />
+        <Route path="/product/:id" element={<PageTransition><Product /></PageTransition>} />
+        <Route path="/collections" element={<PageTransition><Collections /></PageTransition>} />
+        <Route path="/about" element={<PageTransition><About /></PageTransition>} />
+        <Route path="/cart" element={<PageTransition><Cart /></PageTransition>} />
+        <Route path="/checkout" element={<PageTransition><Checkout /></PageTransition>} />
+        <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
+        <Route path="/faq" element={<PageTransition><FAQ /></PageTransition>} />
+        <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
+      </Routes>
+    </AnimatePresence>
+    <CartDrawer />
+    <Footer />
+  </>;
 }
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <CartProvider>
-        <AppRoutes />
-      </CartProvider>
-    </BrowserRouter>
-  </React.StrictMode>
+  <React.StrictMode><BrowserRouter><CartProvider><AppRoutes /></CartProvider></BrowserRouter></React.StrictMode>
 );

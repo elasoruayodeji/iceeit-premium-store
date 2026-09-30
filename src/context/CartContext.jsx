@@ -1,4 +1,4 @@
-import React, { useState, createContext, useContext, useReducer, useMemo } from 'react';
+import { createContext, useContext, useMemo, useState } from "react";
 
 const CartContext = createContext(null);
 
@@ -41,6 +41,11 @@ export function CartProvider({ children }) {
     setItems((current) => current.filter((item) => item.key !== key));
   }
 
+  // ✅ NEW — clear all items (used after successful checkout)
+  function clearCart() {
+    setItems([]);
+  }
+
   const subtotal = useMemo(
     () => items.reduce((sum, item) => sum + item.price * item.quantity, 0),
     [items]
@@ -55,6 +60,7 @@ export function CartProvider({ children }) {
     addItem,
     updateQuantity,
     removeItem,
+    clearCart,  // ✅ exposed
   };
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;

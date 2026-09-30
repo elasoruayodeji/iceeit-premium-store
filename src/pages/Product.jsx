@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { products, formatNaira } from "../data/products";
 import { ImagePlaceholder } from "../components/ImagePlaceholder";
+import { VideoMedia } from "../components/VideoMedia";
 import { Button } from "../components/Button";
 import { useCart } from "../context/CartContext";
 import { MinusIcon, PlusIcon } from "../components/Icons";
@@ -28,8 +29,8 @@ export default function Product() {
   return <div className="page">
     <div className="product-detail">
       <div className="product-gallery">
-        <div className="product-gallery__main"><AnimatePresence mode="wait"><motion.div key={product.gallery[active]} initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}} transition={{duration:.25}}><ImagePlaceholder src={product.gallery[active]} alt={product.name}/></motion.div></AnimatePresence></div>
-        <div className="product-gallery__thumbs">{product.gallery.map((img,i)=><button key={img} className={i===active ? "active":""} onClick={()=>setActive(i)}><ImagePlaceholder src={img} alt=""/></button>)}</div>
+        <div className="product-gallery__main"><AnimatePresence mode="wait"><motion.div key={product.gallery[active].src} initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}} transition={{duration:.25}}>{product.gallery[active].type === "video" ? <VideoMedia src={product.gallery[active].src} label={product.name} playOn="view" controls/> : <ImagePlaceholder src={product.gallery[active].src} alt={product.name} label={product.name}/>}</motion.div></AnimatePresence></div>
+        <div className="product-gallery__thumbs">{product.gallery.map((item,i)=><button key={item.src} className={i===active ? "active":""} onClick={()=>setActive(i)} aria-label={item.type === "video" ? `${product.name} video` : `${product.name} photo ${i}`}>{item.type === "video" ? <VideoMedia src={item.src} label={product.name} playOn="none"/> : <ImagePlaceholder src={item.src} alt=""/>}</button>)}</div>
       </div>
       <Reveal className="product-info">
         <p className="eyebrow">{product.category}</p><h1>{product.name}</h1><div className="product-price">{formatNaira(product.price)}</div>

@@ -1,0 +1,12 @@
+Put your 6 photos in THIS folder (public/images) with these exact names.
+Lowercase, .jpg, no spaces.
+
+hero.jpg                      the hero photo (big homepage banner)
+editorial-black-jacket.jpg    model in the black jacket (homepage editorial section)
+jacket-front.jpg              Complete Jacket Wear, front view
+jacket-side.jpg               Complete Jacket Wear, side view (also used on About page)
+look-roundneck-joggers.jpg    model in the Round Neck + Double Band Joggers (also used on Collections page)
+look-jersey-joggers.jpg       model in the Jersey + Double Band Joggers
+
+Until a photo is added, that spot shows a dark placeholder tile naming the
+exact file it's waiting for, so you always know what's missing.
