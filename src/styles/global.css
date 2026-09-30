@@ -1939,3 +1939,194 @@ background: linear-gradient(
 .newsletter__form input::placeholder {
   color: var(--color-steel) !important;
 }
+/* Fix autofill turning inputs white */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--color-text) !important;
+  -webkit-box-shadow: 0 0 0 1000px var(--color-surface) inset !important;
+  box-shadow: 0 0 0 1000px var(--color-surface) inset !important;
+  transition: background-color 5000s ease-in-out 0s !important;
+}
+
+/* Contact form — dark inputs always */
+.contact-form input,
+.contact-form textarea {
+  background: var(--color-surface) !important;
+  color: var(--color-text) !important;
+  border: 1px solid var(--color-line) !important;
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--color-accent) !important;
+  outline: none !important;
+}
+
+.form-success {
+  color: var(--color-success, #8DE6C2);
+  margin-top: 12px;
+  font-size: 13px;
+}
+.form-error {
+  color: var(--color-danger, #FF7185);
+  margin-top: 12px;
+  font-size: 13px;
+}
+/* Fix Paystack iframe centering (breaks due to transforms) */
+body,
+#root,
+main,
+.page,
+.checkout {
+  transform: none !important;
+  filter: none !important;
+  perspective: none !important;
+  will-change: auto !important;
+}
+/* Hero — fit image + text in first viewport on mobile */
+@media (max-width: 900px) {
+  .hero {
+    min-height: auto !important;
+    padding-top: 12px !important;
+    padding-bottom: 20px !important;
+    gap: 16px !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .hero__media {
+    order: -1 !important;
+    aspect-ratio: 4 / 3 !important;
+    max-height: 42svh !important;
+    width: 100% !important;
+    border-radius: 16px !important;
+    margin-bottom: 0 !important;
+  }
+
+  .hero__media .image-placeholder {
+    height: 100% !important;
+    border-radius: 16px !important;
+  }
+
+  .hero__media .image-placeholder img,
+  .hero__media .image-placeholder video {
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center 20% !important;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.4rem, 11vw, 3.6rem) !important;
+    line-height: 0.92 !important;
+    margin-top: 0 !important;
+  }
+
+  .hero__intro {
+    font-size: 14px !important;
+    margin-bottom: 14px !important;
+  }
+
+  .hero__badge {
+    bottom: 12px !important;
+    left: 12px !important;
+    font-size: 9px !important;
+    padding: 8px 12px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero__media {
+    max-height: 38svh !important;
+  }
+}
+/* =========================================================
+   Floating cart button (right edge, always visible)
+   ========================================================= */
+.floating-cart {
+  position: fixed;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #0B0A0D;
+  border: 1px solid var(--color-line);
+  color: var(--color-text);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  z-index: 45;
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.55);
+  transition: background-color .25s var(--ease), color .25s var(--ease),
+    border-color .25s var(--ease), box-shadow .25s var(--ease);
+}
+
+.floating-cart:hover {
+  background: var(--color-accent);
+  color: #0B0A0D;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 30px rgba(123, 184, 255, 0.5);
+}
+
+.floating-cart span {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  color: #0B0A0D;
+  font-size: 10px;
+  font-weight: 700;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-body);
+}
+
+.floating-cart:hover span {
+  background: #0B0A0D;
+  color: var(--color-accent);
+}
+
+@media (max-width: 600px) {
+  .floating-cart {
+    right: 12px;
+    width: 50px;
+    height: 50px;
+  }
+}
+/* =========================================================
+   "Wear the cold." — Tolu-style Playfair (fixed)
+   ========================================================= */
+.hero h1 {
+  font-family: var(--font-display) !important;
+  font-weight: 500 !important;
+  font-size: clamp(3rem, 8vw, 6.5rem) !important;   /* ← smaller */
+  line-height: 0.95 !important;                       /* ← more breathing room */
+  letter-spacing: -0.04em !important;
+  color: var(--color-text);
+  word-break: keep-all !important;                    /* ← stops breaking mid-word */
+  overflow-wrap: normal !important;
+  hyphens: none !important;
+}
+
+.hero h1 .hero__accent {
+  font-family: var(--font-display) !important;
+  color: var(--color-accent);
+  font-weight: 500 !important;
+  font-style: italic !important;
+  letter-spacing: -0.04em !important;
+}
+
+@media (max-width: 900px) {
+  .hero h1 {
+    font-size: clamp(2.4rem, 9vw, 3.6rem) !important;
+    letter-spacing: -0.03em !important;
+  }
+}

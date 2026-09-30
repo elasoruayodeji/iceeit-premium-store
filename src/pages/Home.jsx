@@ -58,8 +58,9 @@ export default function Home() {
   const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "18%"]);
   const imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.06]);
 
-  const textOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
-  const textY = useTransform(scrollYProgress, [0, 0.6], ["0%", "-30%"]);
+// Much softer fade — only kicks in near the end of the hero, and never fully disappears
+const textOpacity = useTransform(scrollYProgress, [0, 0.85], [1, 0.5]);
+const textY = useTransform(scrollYProgress, [0, 1], ["0%", "-10%"]);
 
   return (
     <div>
