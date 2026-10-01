@@ -1,4 +1,6 @@
 import React from "react";
+import AdminLogin from './pages/AdminLogin';
+import AdminDashboard from './pages/AdminDashboard';
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
@@ -7,6 +9,7 @@ import { CartProvider } from "./context/CartContext";
 import { Navbar } from "./components/Navbar";
 import { Footer } from "./components/Footer";
 import { CartDrawer } from "./components/CartDrawer";
+import { FloatingWhatsApp } from "./components/FloatingWhatsApp";
 import { PageTransition } from "./components/Motion";
 import { FloatingCart } from "./components/FloatingCart";
 import Home from "./pages/Home";
@@ -41,6 +44,8 @@ function AppRoutes() {
           <Route path="/" element={<PageTransition><Home /></PageTransition>} />
           <Route path="/shop" element={<PageTransition><Shop /></PageTransition>} />
           <Route path="/product/:id" element={<PageTransition><Product /></PageTransition>} />
+          <Route path="/admin/login" element={<AdminLogin />} />
+<Route path="/admin" element={<AdminDashboard />} />
           <Route path="/collections" element={<PageTransition><Collections /></PageTransition>} />
           <Route path="/about" element={<PageTransition><About /></PageTransition>} />
           <Route path="/cart" element={<PageTransition><Cart /></PageTransition>} />
@@ -52,6 +57,7 @@ function AppRoutes() {
         </Routes>
       </AnimatePresence>
             <FloatingCart />
+            <FloatingWhatsApp />
       <CartDrawer />
       <Footer />
     </>

@@ -78,7 +78,7 @@ const textY = useTransform(scrollYProgress, [0, 1], ["0%", "-10%"]);
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2, ease: EASE }}
           >
-            FW25 · Contemporary streetwear
+            ICEEIT · LAGOS · FW25
           </motion.p>
 
           <h1>

@@ -1,30 +1,34 @@
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import { ProductGrid } from "../components/ProductGrid";
 import { products, categories } from "../data/products";
 import { Reveal } from "../components/Motion";
 
+// Case-insensitive category match
+function sameCategory(a, b) {
+  return String(a || "").toLowerCase() === String(b || "").toLowerCase();
+}
+
 export default function Shop() {
   const [params, setParams] = useSearchParams();
   const initial = params.get("category") || "All";
+
   const [category, setCategory] = useState(
-    categories.includes(initial) ? initial : "All"
+    categories.some((c) => sameCategory(c, initial)) ? initial : "All"
   );
   const [sort, setSort] = useState("featured");
 
-  // Sync state when URL changes (e.g. user clicks "View all" from homepage)
+  // Sync state when URL changes (e.g. user clicks a category link from homepage)
   useEffect(() => {
     const urlCat = params.get("category") || "All";
-    if (categories.includes(urlCat) && urlCat !== category) {
-      setCategory(urlCat);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    setCategory(
+      categories.some((c) => sameCategory(c, urlCat)) ? urlCat : "All"
+    );
   }, [params]);
 
-  // When user clicks a filter, also update the URL
   function handleCategoryChange(c) {
     setCategory(c);
-    if (c === "All") {
+    if (sameCategory(c, "All")) {
       setParams({});
     } else {
       setParams({ category: c });
@@ -32,14 +36,10 @@ export default function Shop() {
   }
 
   const filtered = useMemo(() => {
-    // Case-insensitive comparison so "Tops" matches "tops"
     let list =
-      category === "All"
+      sameCategory(category, "All")
         ? [...products]
-        : products.filter(
-            (p) =>
-              (p.category || "").toLowerCase() === category.toLowerCase()
-          );
+        : products.filter((p) => sameCategory(p.category, category));
 
     if (sort === "low") list.sort((a, b) => a.price - b.price);
     if (sort === "high") list.sort((a, b) => b.price - a.price);
@@ -64,7 +64,7 @@ export default function Shop() {
           {categories.map((c) => (
             <button
               key={c}
-              className={category === c ? "active" : ""}
+              className={sameCategory(category, c) ? "active" : ""}
               onClick={() => handleCategoryChange(c)}
             >
               {c}

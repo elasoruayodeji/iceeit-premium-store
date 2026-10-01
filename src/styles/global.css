@@ -2130,3 +2130,671 @@ main,
     letter-spacing: -0.03em !important;
   }
 }
+/* =========================================================
+   ADMIN PANEL — final styling (overrides everything)
+   ========================================================= */
+
+/* Login page */
+.admin-login-page {
+  max-width: 400px;
+  margin: 100px auto 80px !important;
+  padding: 0 20px !important;
+}
+
+.admin-login-form {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 20px !important;
+  background: var(--color-surface) !important;
+  padding: 40px 32px !important;
+  border: 1px solid var(--color-line) !important;
+  border-radius: 16px !important;
+}
+
+.admin-login-form h1 {
+  font-family: var(--font-display) !important;
+  font-size: 2.2rem !important;
+  font-weight: 500 !important;
+  margin: 0 0 8px !important;
+  color: var(--color-text) !important;
+  letter-spacing: -0.04em !important;
+}
+
+.admin-login-form label {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+  font-size: 11px !important;
+  color: var(--color-muted) !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.14em !important;
+  font-weight: 500 !important;
+}
+
+.admin-login-form input {
+  padding: 14px 16px !important;
+  border: 1px solid var(--color-line) !important;
+  background: var(--color-bg) !important;
+  color: var(--color-text) !important;
+  font-size: 15px !important;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+  border-radius: 8px !important;
+  font-family: var(--font-body) !important;
+  outline: none !important;
+}
+
+.admin-login-form input:focus {
+  border-color: var(--color-accent) !important;
+  box-shadow: 0 0 0 3px rgba(123, 184, 255, 0.15) !important;
+}
+
+.admin-login-form .btn {
+  width: 100% !important;
+  justify-content: center !important;
+  margin-top: 8px !important;
+}
+
+.admin-login-form .newsletter-error {
+  color: #FF7185 !important;
+  font-size: 13px !important;
+  margin: 8px 0 0 !important;
+  text-align: center !important;
+}
+
+/* Dashboard */
+.admin-dashboard {
+  max-width: 1000px !important;
+  margin: 0 auto !important;
+  padding: 60px 20px 100px !important;
+}
+
+.admin-header {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  gap: 16px !important;
+  margin-bottom: 40px !important;
+  padding-bottom: 24px !important;
+  border-bottom: 1px solid var(--color-line) !important;
+}
+
+.admin-header h1 {
+  font-family: var(--font-display) !important;
+  font-size: 3rem !important;
+  font-weight: 500 !important;
+  margin: 0 !important;
+  color: var(--color-text) !important;
+  letter-spacing: -0.05em !important;
+}
+
+.admin-header .text-link {
+  color: var(--color-accent) !important;
+  font-size: 12px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.14em !important;
+  border: none !important;
+  background: none !important;
+  cursor: pointer !important;
+  padding: 8px 0 !important;
+}
+
+.admin-header .text-link:hover {
+  color: #FFFFFF !important;
+}
+
+/* Tabs */
+.admin-tabs {
+  display: flex !important;
+  gap: 10px !important;
+  margin-bottom: 32px !important;
+  flex-wrap: wrap !important;
+}
+
+.admin-tabs .pill {
+  padding: 12px 20px !important;
+  border: 1px solid var(--color-line) !important;
+  background: transparent !important;
+  color: var(--color-muted) !important;
+  font-size: 12px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.12em !important;
+  border-radius: 999px !important;
+  cursor: pointer !important;
+  transition: all 0.2s var(--ease, ease) !important;
+  font-family: var(--font-body) !important;
+  font-weight: 500 !important;
+}
+
+.admin-tabs .pill:hover {
+  border-color: var(--color-accent) !important;
+  color: var(--color-text) !important;
+}
+
+.admin-tabs .pill.active {
+  background: var(--color-accent) !important;
+  border-color: var(--color-accent) !important;
+  color: #0B0A0D !important;
+  font-weight: 600 !important;
+}
+
+/* Orders list */
+.admin-order-list {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 16px !important;
+}
+
+.admin-order-card {
+  border: 1px solid var(--color-line) !important;
+  padding: 24px !important;
+  background: var(--color-surface) !important;
+  border-radius: 14px !important;
+  transition: border-color 0.2s ease !important;
+}
+
+.admin-order-card:hover {
+  border-color: var(--color-accent) !important;
+}
+
+.admin-order-top {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: baseline !important;
+  gap: 12px !important;
+  margin-bottom: 14px !important;
+  flex-wrap: wrap !important;
+}
+
+.admin-order-top strong {
+  color: var(--color-text) !important;
+  font-size: 17px !important;
+  font-family: var(--font-display) !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.02em !important;
+}
+
+.admin-order-top span {
+  color: var(--color-muted) !important;
+  font-size: 11px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.1em !important;
+}
+
+.admin-order-card p {
+  margin: 6px 0 !important;
+  color: var(--color-muted) !important;
+  font-size: 13px !important;
+  line-height: 1.5 !important;
+}
+
+.admin-order-card p strong {
+  color: var(--color-accent) !important;
+  font-weight: 600 !important;
+}
+
+.admin-order-items {
+  white-space: pre-wrap !important;
+  font-family: var(--font-body) !important;
+  color: var(--color-text) !important;
+  font-size: 13px !important;
+  margin: 14px 0 !important;
+  padding: 14px 16px !important;
+  background: var(--color-bg) !important;
+  border-radius: 10px !important;
+  border: 1px solid var(--color-line) !important;
+  line-height: 1.6 !important;
+}
+
+.admin-order-actions {
+  display: flex !important;
+  gap: 10px !important;
+  flex-wrap: wrap !important;
+  margin-top: 20px !important;
+  padding-top: 16px !important;
+  border-top: 1px solid var(--color-line) !important;
+}
+
+.admin-order-actions .btn {
+  font-size: 11px !important;
+  padding: 10px 16px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.1em !important;
+}
+
+/* Empty + loading states */
+.admin-dashboard .empty-state {
+  text-align: center !important;
+  color: var(--color-muted) !important;
+  padding: 60px 20px !important;
+  font-size: 14px !important;
+  border: 1px dashed var(--color-line) !important;
+  border-radius: 14px !important;
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+  .admin-header h1 { font-size: 2rem !important; }
+  .admin-header { flex-direction: column !important; align-items: flex-start !important; }
+  .admin-order-top { flex-direction: column !important; gap: 6px !important; }
+  .admin-login-form { padding: 30px 22px !important; }
+}
+/* Force dark theme on all select dropdowns */
+select,
+.checkout-form select,
+.admin-login-form select {
+  background: var(--color-bg, #0B0A0D) !important;
+  color: var(--color-text, #F4F5F7) !important;
+  border: 1px solid var(--color-line, #292A30) !important;
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23A7A9B0' stroke-width='2'%3e%3cpolyline points='6 9 12 15 18 9'/%3e%3c/svg%3e") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 14px center !important;
+  background-size: 14px !important;
+  padding-right: 40px !important;
+}
+
+select option {
+  background: #0B0A0D !important;
+  color: #F4F5F7 !important;
+}
+/* Admin action buttons — force styling */
+.admin-order-actions .btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 10px 18px !important;
+  font-size: 11px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  border-radius: 8px !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  text-decoration: none !important;
+  font-family: var(--font-body) !important;
+}
+
+.admin-order-actions .btn-primary {
+  background: var(--color-accent) !important;
+  color: #0B0A0D !important;
+  border: 1px solid var(--color-accent) !important;
+}
+
+.admin-order-actions .btn-primary:hover {
+  background: #FFFFFF !important;
+  border-color: #FFFFFF !important;
+}
+
+.admin-order-actions .btn-outline {
+  background: transparent !important;
+  color: var(--color-text) !important;
+  border: 1px solid var(--color-line) !important;
+}
+
+.admin-order-actions .btn-outline:hover {
+  border-color: var(--color-accent) !important;
+  color: var(--color-accent) !important;
+  background: transparent !important;
+}
+@media (max-width: 900px) {
+  .hero {
+    padding-top: 24px !important;
+    padding-bottom: 40px !important;
+    gap: 28px !important;
+  }
+  .hero__media {
+    max-height: 44svh !important;
+  }
+}
+/* Richer black — deeper, more premium than pure #0B0A0D */
+body {
+  background: #08070A !important;      /* slightly deeper */
+}
+
+/* Add a subtle warm ambient gradient like Tolu Space has */
+body::before {
+  content: "" !important;
+  position: fixed !important;
+  inset: 0 !important;
+  background:
+    radial-gradient(ellipse at 20% 0%, rgba(123, 184, 255, 0.06), transparent 40%),
+    radial-gradient(ellipse at 80% 100%, rgba(123, 184, 255, 0.04), transparent 50%) !important;
+  pointer-events: none !important;
+  z-index: 0 !important;
+}
+
+/* Sections feel distinct with subtle background shifts */
+.section {
+  background: transparent !important;
+}
+.section--tight {
+  background: transparent !important;
+}
+/* =========================================================
+   Buttons — Tolu-style premium
+   ========================================================= */
+.button,
+.btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 16px !important;
+  padding: 16px 24px !important;
+  font-family: var(--font-body) !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.15em !important;
+  text-transform: uppercase !important;
+  border-radius: 999px !important;   /* full pill */
+  text-decoration: none !important;
+  border: 1px solid transparent !important;
+  transition: all 0.25s ease !important;
+  cursor: pointer !important;
+  white-space: nowrap !important;
+}
+
+/* Primary — dark fill on light bg OR light fill on dark bg */
+.button--solid,
+.btn-primary {
+  background: #F4F5F7 !important;   /* ice white */
+  color: #0B0A0D !important;
+  border-color: #F4F5F7 !important;
+}
+.button--solid:hover,
+.btn-primary:hover {
+  background: var(--color-accent) !important;
+  border-color: var(--color-accent) !important;
+  color: #0B0A0D !important;
+  box-shadow: 0 8px 30px rgba(123, 184, 255, 0.35) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Outline */
+.button--outline,
+.btn-outline {
+  background: transparent !important;
+  color: var(--color-text) !important;
+  border-color: var(--color-line) !important;
+}
+.button--outline:hover,
+.btn-outline:hover {
+  border-color: var(--color-accent) !important;
+  color: var(--color-accent) !important;
+}
+/* Ambient ice-blue glow behind the whole site */
+body::before {
+  content: "" !important;
+  position: fixed !important;
+  inset: 0 !important;
+  background:
+    radial-gradient(ellipse at 15% 10%, rgba(123, 184, 255, 0.07), transparent 45%),
+    radial-gradient(ellipse at 85% 90%, rgba(123, 184, 255, 0.04), transparent 50%) !important;
+  pointer-events: none !important;
+  z-index: 0 !important;
+}
+.eyebrow {
+  font-family: var(--font-body) !important;
+  font-size: 10px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.24em !important;   /* wider tracking */
+  text-transform: uppercase !important;
+  color: var(--color-muted) !important;
+  margin-bottom: 16px !important;
+}
+/* More generous vertical rhythm — Tolu Space style */
+.hero__copy {
+  gap: 0 !important;
+}
+.hero h1 {
+  margin-bottom: 28px !important;
+}
+.hero__intro {
+  margin-bottom: 32px !important;
+  max-width: 480px !important;
+  line-height: 1.65 !important;
+}
+/* =========================================================
+   Ambient ice-blue glow — STRONGER VERSION
+   ========================================================= */
+
+body::before {
+  content: "" !important;
+  position: fixed !important;
+  inset: 0 !important;
+  background:
+    radial-gradient(ellipse 60% 55% at 15% 8%, rgba(123, 184, 255, 0.22), transparent 60%),
+    radial-gradient(ellipse 55% 50% at 85% 92%, rgba(123, 184, 255, 0.14), transparent 65%),
+    radial-gradient(ellipse 40% 35% at 50% 50%, rgba(123, 184, 255, 0.06), transparent 70%) !important;
+  pointer-events: none !important;
+  z-index: 0 !important;
+}
+
+/* Ensure content stays above the glow */
+#root,
+main,
+header,
+footer {
+  position: relative !important;
+  z-index: 1 !important;
+}
+/* =========================================================
+   Admin — stats bar + WhatsApp button
+   ========================================================= */
+
+.admin-stats {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 16px !important;
+  margin-bottom: 32px !important;
+}
+
+.admin-stat {
+  border: 1px solid var(--color-line) !important;
+  background: var(--color-surface) !important;
+  padding: 20px 22px !important;
+  border-radius: 12px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 6px !important;
+}
+
+.admin-stat span {
+  font-size: 10px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.16em !important;
+  color: var(--color-muted) !important;
+  font-weight: 500 !important;
+}
+
+.admin-stat strong {
+  font-size: 26px !important;
+  font-family: var(--font-display) !important;
+  font-weight: 500 !important;
+  color: var(--color-text) !important;
+  letter-spacing: -0.03em !important;
+  line-height: 1.1 !important;
+}
+
+.admin-stat small {
+  font-size: 11px !important;
+  color: var(--color-muted) !important;
+}
+
+.admin-stat--accent {
+  border-color: var(--color-accent) !important;
+  background: rgba(123, 184, 255, 0.08) !important;
+}
+
+.admin-stat--accent strong {
+  color: var(--color-accent) !important;
+}
+
+/* WhatsApp button */
+.btn-whatsapp {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding: 10px 16px !important;
+  font-size: 11px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+  border-radius: 8px !important;
+  background: rgba(37, 211, 102, 0.12) !important;
+  border: 1px solid rgba(37, 211, 102, 0.4) !important;
+  color: #25D366 !important;
+  text-decoration: none !important;
+  transition: all 0.2s ease !important;
+  cursor: pointer !important;
+}
+
+.btn-whatsapp:hover {
+  background: #25D366 !important;
+  color: #0B0A0D !important;
+  border-color: #25D366 !important;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4) !important;
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+  .admin-stats {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+  .admin-stat strong {
+    font-size: 22px !important;
+  }
+}
+/* =========================================================
+   Floating WhatsApp (bottom-right, glowing pulse)
+   ========================================================= */
+.floating-wa {
+  position: fixed;
+  right: 20px;
+  bottom: 24px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #25D366;
+  color: #FFFFFF;
+  display: grid;
+  place-items: center;
+  z-index: 46;
+  box-shadow:
+    0 8px 24px rgba(37, 211, 102, 0.35),
+    0 0 0 0 rgba(37, 211, 102, 0.5);
+  text-decoration: none;
+  transition: box-shadow 0.3s ease;
+}
+
+.floating-wa:hover {
+  box-shadow:
+    0 12px 32px rgba(37, 211, 102, 0.55),
+    0 0 0 8px rgba(37, 211, 102, 0.12);
+}
+
+.floating-wa svg {
+  width: 26px;
+  height: 26px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Glow pulses — two layers for a smoother breathing feel */
+.floating-wa__pulse {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: rgba(37, 211, 102, 0.5);
+  z-index: 0;
+  animation: waPulse 2.4s ease-out infinite;
+  pointer-events: none;
+}
+
+.floating-wa__pulse--delay {
+  animation-delay: 1.2s;
+}
+
+@keyframes waPulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.55;
+  }
+  70% {
+    transform: scale(1.7);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.7);
+    opacity: 0;
+  }
+}
+
+/* =========================================================
+   Floating cart — slightly smaller now
+   ========================================================= */
+.floating-cart {
+  width: 50px !important;
+  height: 50px !important;
+  right: 22px !important;
+}
+
+.floating-cart svg {
+  width: 19px !important;
+  height: 19px !important;
+}
+
+/* Mobile tweaks */
+@media (max-width: 600px) {
+  .floating-cart {
+    width: 46px !important;
+    height: 46px !important;
+    right: 18px !important;
+  }
+  .floating-cart svg {
+    width: 17px !important;
+    height: 17px !important;
+  }
+  .floating-wa {
+    width: 52px;
+    height: 52px;
+    right: 16px;
+    bottom: 20px;
+  }
+  .floating-wa svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+/* Slightly smaller WhatsApp float */
+.floating-wa {
+  width: 50px !important;
+  height: 50px !important;
+  right: 18px !important;
+  bottom: 20px !important;
+}
+
+.floating-wa svg {
+  width: 22px !important;
+  height: 22px !important;
+}
+
+@media (max-width: 600px) {
+  .floating-wa {
+    width: 46px !important;
+    height: 46px !important;
+    right: 14px !important;
+    bottom: 16px !important;
+  }
+  .floating-wa svg {
+    width: 20px !important;
+    height: 20px !important;
+  }
+}
+.hero h1,
+.hero h1 span {
+  font-style: italic !important;
+}
