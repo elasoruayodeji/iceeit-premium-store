@@ -142,10 +142,10 @@ const textY = useTransform(scrollYProgress, [0, 1], ["0%", "-10%"]);
             }}
           >
             <ImagePlaceholder
-              src="/images/hero.jpg"
-              alt="ICEEIT campaign"
-              label="hero.jpg"
-            />
+  src="https://res.cloudinary.com/ayodex-labs/image/upload/v1790871129/hero.jpg"
+  alt="ICEEIT campaign"
+  label="hero.jpg"
+/>
           </motion.div>
           <div className="hero__badge">FW25 · Streetwear</div>
         </motion.div>
@@ -176,10 +176,10 @@ const textY = useTransform(scrollYProgress, [0, 1], ["0%", "-10%"]);
 
       <section className="category-strip">
         {[
-          ["Tops", "/shop?category=Tops", "/images/look-roundneck-joggers.jpg"],
-          ["Bottoms", "/shop?category=Bottoms", "/images/look-jersey-joggers.jpg"],
-          ["Outerwear", "/shop?category=Outerwear", "/images/jacket-front.jpg"],
-        ].map(([name, to, img], i) => (
+  ["Tops", "/shop?category=Tops", "https://res.cloudinary.com/ayodex-labs/image/upload/v1790871129/look-roundneck-joggers.jpg"],
+  ["Bottoms", "/shop?category=Bottoms", "https://res.cloudinary.com/ayodex-labs/image/upload/v1790871128/look-jersey-joggers.jpg"],
+  ["Outerwear", "/shop?category=Outerwear", "https://res.cloudinary.com/ayodex-labs/image/upload/v1790871127/jacket-front.jpg"],
+].map(([name, to, img], i) => (
           <motion.div
             key={name}
             className="category-card"
@@ -233,10 +233,10 @@ const textY = useTransform(scrollYProgress, [0, 1], ["0%", "-10%"]);
           transition={{ duration: 0.75, ease: EASE }}
         >
           <ImagePlaceholder
-            src="/images/hero.jpg"
-            alt="ICEEIT editorial"
-            label="hero.jpg"
-          />
+  src="https://res.cloudinary.com/ayodex-labs/image/upload/v1790871127/editorial-black-jacket.jpg"
+  alt="ICEEIT editorial"
+  label="editorial-black-jacket.jpg"
+/>
         </motion.div>
         <Reveal className="editorial__copy">
           <p className="eyebrow">Built for the street</p>
