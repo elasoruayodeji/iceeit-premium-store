@@ -2798,3 +2798,26 @@ footer {
 .hero h1 span {
   font-style: italic !important;
 }
+/* =========================================================
+   Hero image — lighter gradient (less dark on mobile)
+   ========================================================= */
+.hero__media::after {
+  background: linear-gradient(
+    to top,
+    rgba(11, 10, 13, 0.42) 0%,      /* was 0.65 — lighter */
+    rgba(11, 10, 13, 0.18) 40%,     /* was 0.25 */
+    rgba(11, 10, 13, 0) 100%
+  ) !important;
+}
+
+/* Mobile — even lighter */
+@media (max-width: 900px) {
+  .hero__media::after {
+    background: linear-gradient(
+      to top,
+      rgba(11, 10, 13, 0.32) 0%,    /* was 0.65+ */
+      rgba(11, 10, 13, 0.12) 45%,
+      rgba(11, 10, 13, 0) 100%
+    ) !important;
+  }
+}
