@@ -3124,3 +3124,30 @@ footer {
     padding: 14px 20px 4px;
   }
 }
+/* =========================================================
+   Lookbook — mobile sizing fix
+   ========================================================= */
+
+@media (max-width: 900px) {
+  .lookbook__strip {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    gap: 12px !important;
+    /* Let the strip bleed off the right edge so the next card peeks */
+    margin-right: -16px !important;
+  }
+
+  .lookbook__item {
+    width: 78vw !important;
+    max-width: 340px !important;
+    min-width: 260px !important;
+    flex-shrink: 0 !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .lookbook__item {
+    width: 82vw !important;
+    max-width: 320px !important;
+  }
+}
