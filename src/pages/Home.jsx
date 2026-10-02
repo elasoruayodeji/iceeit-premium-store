@@ -9,6 +9,7 @@ import { useRef } from "react";
 import { ArrowRightIcon } from "../components/Icons";
 import { Button } from "../components/Button";
 import { ProductGrid } from "../components/ProductGrid";
+import { Lookbook } from "../components/Lookbook";
 import { Newsletter } from "../components/Newsletter";
 import { Reveal, Stagger, StaggerItem } from "../components/Motion";
 import { products } from "../data/products";
@@ -16,7 +17,6 @@ import { ImagePlaceholder } from "../components/ImagePlaceholder";
 
 const EASE = [0.22, 1, 0.36, 1];
 
-// Letter-by-letter reveal
 function SplitText({ text, className = "", delay = 0 }) {
   const reduced = useReducedMotion();
   const chars = Array.from(text);
@@ -48,7 +48,6 @@ export default function Home() {
   const featured = products.filter((p) => p.featured).slice(0, 4);
   const reduced = useReducedMotion();
 
-  // ---------- Parallax + zoom on scroll ----------
   const heroRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: heroRef,
@@ -57,10 +56,8 @@ export default function Home() {
 
   const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "18%"]);
   const imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.06]);
-
-// Much softer fade — only kicks in near the end of the hero, and never fully disappears
-const textOpacity = useTransform(scrollYProgress, [0, 0.85], [1, 0.5]);
-const textY = useTransform(scrollYProgress, [0, 1], ["0%", "-10%"]);
+  const textOpacity = useTransform(scrollYProgress, [0, 0.85], [1, 0.5]);
+  const textY = useTransform(scrollYProgress, [0, 1], ["0%", "-10%"]);
 
   return (
     <div>
@@ -142,10 +139,10 @@ const textY = useTransform(scrollYProgress, [0, 1], ["0%", "-10%"]);
             }}
           >
             <ImagePlaceholder
-  src="https://res.cloudinary.com/ayodex-labs/image/upload/v1790871129/hero.jpg"
-  alt="ICEEIT campaign"
-  label="hero.jpg"
-/>
+              src="https://res.cloudinary.com/ayodex-labs/image/upload/q_auto,f_auto/v1790871129/hero.jpg"
+              alt="ICEEIT campaign"
+              label="hero.jpg"
+            />
           </motion.div>
           <div className="hero__badge">FW25 · Streetwear</div>
         </motion.div>
@@ -173,13 +170,14 @@ const textY = useTransform(scrollYProgress, [0, 1], ["0%", "-10%"]);
         </Stagger>
         <ProductGrid products={featured} />
       </section>
+      <Lookbook />
 
       <section className="category-strip">
         {[
-  ["Tops", "/shop?category=Tops", "https://res.cloudinary.com/ayodex-labs/image/upload/v1790871129/look-roundneck-joggers.jpg"],
-  ["Bottoms", "/shop?category=Bottoms", "https://res.cloudinary.com/ayodex-labs/image/upload/v1790871128/look-jersey-joggers.jpg"],
-  ["Outerwear", "/shop?category=Outerwear", "https://res.cloudinary.com/ayodex-labs/image/upload/v1790871127/jacket-front.jpg"],
-].map(([name, to, img], i) => (
+          ["Tops", "/shop?category=Tops", "https://res.cloudinary.com/ayodex-labs/image/upload/q_auto,f_auto/v1790871129/look-roundneck-joggers.jpg"],
+          ["Bottoms", "/shop?category=Bottoms", "https://res.cloudinary.com/ayodex-labs/image/upload/q_auto,f_auto/v1790871128/look-jersey-joggers.jpg"],
+          ["Outerwear", "/shop?category=Outerwear", "https://res.cloudinary.com/ayodex-labs/image/upload/q_auto,f_auto/v1790871127/jacket-front.jpg"],
+        ].map(([name, to, img], i) => (
           <motion.div
             key={name}
             className="category-card"
@@ -233,10 +231,10 @@ const textY = useTransform(scrollYProgress, [0, 1], ["0%", "-10%"]);
           transition={{ duration: 0.75, ease: EASE }}
         >
           <ImagePlaceholder
-  src="https://res.cloudinary.com/ayodex-labs/image/upload/v1790871129/hero.jpg"
-  alt="ICEEIT editorial"
-  label="hero.jpg"
-/>
+            src="https://res.cloudinary.com/ayodex-labs/image/upload/q_auto,f_auto/v1790871129/hero.jpg"
+            alt="ICEEIT editorial"
+            label="hero.jpg"
+          />
         </motion.div>
         <Reveal className="editorial__copy">
           <p className="eyebrow">Built for the street</p>

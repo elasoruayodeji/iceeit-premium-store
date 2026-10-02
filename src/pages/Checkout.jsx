@@ -1,4 +1,5 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useCart } from "../context/CartContext";
 import { formatNaira } from "../data/products";
@@ -73,6 +74,12 @@ export default function Checkout() {
   const [shippingId, setShippingId] = useState("lagos");
   const [placing, setPlacing] = useState(false);
   const [placed, setPlaced] = useState(false);
+    // Scroll to top when the confirmation screen appears
+  useEffect(() => {
+    if (placed) {
+      window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+    }
+  }, [placed]);
 
   const cities = selectedState ? stateCities[selectedState] : [];
   const shipping = SHIPPING[shippingId] || SHIPPING.lagos;
@@ -229,19 +236,69 @@ async function saveOrderToDatabase(method, reference = "") {
   }
 
   if (placed) {
-    return (
-      <div className="page">
-        <div className="empty-page">
-          <p className="eyebrow">Thank you</p>
-          <h2>Order placed.</h2>
-          <p style={{ color: "var(--color-muted)", marginBottom: 20 }}>
-            We've received your order and will reach out shortly to confirm delivery.
-          </p>
+  const orderRef = "ICEEIT-" + Date.now().toString().slice(-6);
+
+  return (
+    <div className="page">
+      <div className="order-confirm">
+        <motion.div
+          className="order-confirm__check"
+          initial={{ scale: 0, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <polyline points="5 12 10 17 19 7" />
+          </svg>
+        </motion.div>
+
+        <p className="eyebrow">ICEEIT / Order confirmed</p>
+        <h1>
+          Thank you{form.name ? `, ${form.name.split(" ")[0]}` : ""}.
+        </h1>
+        <p className="order-confirm__intro">
+          We've received your order and will reach out shortly to confirm delivery.
+        </p>
+
+        <div className="order-confirm__details">
+          <div>
+            <span>Order reference</span>
+            <strong>{orderRef}</strong>
+          </div>
+          <div>
+            <span>Total paid</span>
+            <strong>{formatNaira(grandTotal)}</strong>
+          </div>
+          <div>
+            <span>Ships from</span>
+            <strong>Lagos, Nigeria</strong>
+          </div>
+        </div>
+
+        <div className="order-confirm__actions">
           <Button to="/shop">Continue shopping</Button>
+          <a
+            className="btn btn-outline"
+            href={`https://wa.me/2349060902656?text=${encodeURIComponent(
+              `Hi ICEEIT, I just placed an order (ref ${orderRef}). Can you confirm?`
+            )}`}
+            target="_blank"
+            rel="noreferrer"
+          >
+            Confirm on WhatsApp
+          </a>
         </div>
       </div>
-    );
-  }
+    </div>
+  );
+}
 
   if (!items.length) {
     return (
