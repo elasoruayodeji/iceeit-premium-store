@@ -4,7 +4,7 @@ import { useCart } from '../context/CartContext';
 import { formatPrice } from '../utils/formatPrice';
 import { supabase } from '../lib/supabaseClient';
 
-const WHATSAPP_NUMBER = '2348142485613';
+const WHATSAPP_NUMBER = '2349060902656'; // ← swap for client's number when ready
 const PAYSTACK_PUBLIC_KEY = 'pk_test_5ba40cb33253c4f6ce6a35efcfc7aaef7c63fdd1';
 const FORMSPREE_URL = 'https://formspree.io/f/mppwazrd';
 

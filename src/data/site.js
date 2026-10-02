@@ -1,8 +1,8 @@
 export const site = {
   name: "ICEEIT",
-  email: "elasoruayodeji@gmail.com",
-  whatsapp: "https://wa.me/2348000000000",
-  instagram: "https://instagram.com/iceeit",
+  email: "iceeit.orders@gmail.com",
+  whatsapp: "https://wa.me/2349060902656",
+  instagram: "https://instagram.com/iceeitofficial",
   socialLabel: "@iceeit",
   nav: [
     { label: "Shop", to: "/shop" },

@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-const WHATSAPP_NUMBER = "2348142485613"; // ← swap for client's number when ready
+const WHATSAPP_NUMBER = "2349060902656"; // ← swap for client's number when ready
 const WHATSAPP_MESSAGE = "Hi ICEEIT 👋 I have a question about your products.";
 
 export function FloatingWhatsApp() {

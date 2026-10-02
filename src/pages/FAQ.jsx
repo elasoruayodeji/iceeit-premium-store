@@ -8,7 +8,7 @@ const faqs = [
   ["How does delivery work?", "Delivery details and applicable fees are confirmed during checkout. Delivery timing can vary by destination and will be communicated with your order."],
   ["Can I return or exchange an item?", "Return and exchange rules depend on the final ICEEIT order policy. Before launch, replace this answer with your exact eligible-item, condition and time-window policy."],
   ["Do your products have sizes?", "The current product catalogue is not using size options yet. If ICEEIT introduces size variants, they can be added directly to each product's data and product page."],
-  ["How can I contact ICEEIT?", "Email us at elasoruayodeji@gmail.com, or use the WhatsApp and Instagram links on the Contact page."],
+  ["How can I contact ICEEIT?", "Email us at iceeit.orders@gmail.com, or use the WhatsApp and Instagram links on the Contact page."],
   ["Are product images the exact items I will receive?", "Product photography is intended to represent each piece. Final photography and product-specific material details should be used on the live product pages once the real assets are inserted."],
   ["Can I change my order after placing it?", "Contact ICEEIT as soon as possible with your order details. Changes cannot be guaranteed once an order has entered fulfilment."]
 ];

@@ -233,9 +233,9 @@ const textY = useTransform(scrollYProgress, [0, 1], ["0%", "-10%"]);
           transition={{ duration: 0.75, ease: EASE }}
         >
           <ImagePlaceholder
-  src="https://res.cloudinary.com/ayodex-labs/image/upload/v1790871127/editorial-black-jacket.jpg"
+  src="https://res.cloudinary.com/ayodex-labs/image/upload/v1790871129/hero.jpg"
   alt="ICEEIT editorial"
-  label="editorial-black-jacket.jpg"
+  label="hero.jpg"
 />
         </motion.div>
         <Reveal className="editorial__copy">
