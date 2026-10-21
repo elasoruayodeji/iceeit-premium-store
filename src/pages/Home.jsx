@@ -1,259 +1,74 @@
+/*
+  ICEEIT V3 — Home.
+  Cinematic editorial composition:
+    1. Cinematic hero (campaign photo, WEAR THE COLD type, shop CTA)
+    2. Brand introduction (asymmetric editorial split)
+    3. Featured collection (real featured products, poster grid)
+    4. Editorial campaign (alternating image/video panels)
+    5. Shop all (responsive grid wired to real product data + cart flow)
+    6. Closing brand statement (full-bleed finish with CTA)
+  All copy is plain DOM text so it stays readable without JS animation.
+*/
 import { Link } from "react-router-dom";
-import {
-  motion,
-  useReducedMotion,
-  useScroll,
-  useTransform,
-} from "framer-motion";
-import { useRef } from "react";
-import { ArrowRightIcon } from "../components/Icons";
-import { Button } from "../components/Button";
+import { CinematicHero } from "../components/CinematicHero";
+import { BrandIntro } from "../components/BrandIntro";
+import { FeaturedCollection } from "../components/FeaturedCollection";
+import { EditorialCampaign } from "../components/EditorialCampaign";
+import { ClosingStatement } from "../components/ClosingStatement";
 import { ProductGrid } from "../components/ProductGrid";
-import { Lookbook } from "../components/Lookbook";
-import { Newsletter } from "../components/Newsletter";
-import { Reveal, Stagger, StaggerItem } from "../components/Motion";
+import { useSeo } from "../hooks/useSeo";
+import { getSiteOrigin } from "../lib/seo";
 import { products } from "../data/products";
-import { ImagePlaceholder } from "../components/ImagePlaceholder";
-
-const EASE = [0.22, 1, 0.36, 1];
-
-function SplitText({ text, className = "", delay = 0 }) {
-  const reduced = useReducedMotion();
-  const chars = Array.from(text);
-
-  if (reduced) return <span className={className}>{text}</span>;
-
-  return (
-    <span className={className} aria-label={text}>
-      {chars.map((char, i) => (
-        <motion.span
-          key={i}
-          aria-hidden="true"
-          initial={{ opacity: 0, y: "0.4em" }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: delay + i * 0.04, ease: EASE }}
-          style={{
-            display: "inline-block",
-            whiteSpace: char === " " ? "pre" : undefined,
-          }}
-        >
-          {char}
-        </motion.span>
-      ))}
-    </span>
-  );
-}
 
 export default function Home() {
-  const featured = products.filter((p) => p.featured).slice(0, 4);
-  const reduced = useReducedMotion();
-
-  const heroRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: heroRef,
-    offset: ["start start", "end start"],
+  useSeo({
+    title:
+      "ICEEIT — Streetwear Clothing Brand in Lagos, Nigeria | Wear the Cold",
+    description:
+      "Shop ICEEIT, a Lagos-based streetwear brand serving Nigeria. FW25 jackets, tops, joggers and co-ord sets built on bold silhouettes and a cold identity. Wear the cold.",
+    path: "/",
+    jsonLd: {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      name: "ICEEIT FW25 Collection",
+      itemListElement: products.map((p, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        name: p.name,
+        url: `${getSiteOrigin()}/product/${p.id}`,
+      })),
+    },
   });
 
-  const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "18%"]);
-  const imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.06]);
-  const textOpacity = useTransform(scrollYProgress, [0, 0.85], [1, 0.5]);
-  const textY = useTransform(scrollYProgress, [0, 1], ["0%", "-10%"]);
-
   return (
-    <div>
-      <section className="hero" ref={heroRef}>
-        <motion.div
-          className="hero__copy"
-          style={{
-            opacity: reduced ? 1 : textOpacity,
-            y: reduced ? 0 : textY,
-          }}
-        >
-          <motion.p
-            className="eyebrow"
-            initial={{ opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2, ease: EASE }}
-          >
-            ICEEIT · LAGOS · FW25
-          </motion.p>
+    <article className="v3-home">
+      <CinematicHero />
+      <BrandIntro />
+      <FeaturedCollection />
+      <EditorialCampaign />
 
-          <h1>
-            <SplitText text="Wear the" delay={0.35} />
-            <br />
-            <motion.span
-              className="hero__accent"
-              animate={
-                reduced
-                  ? {}
-                  : {
-                      textShadow: [
-                        "0 0 24px rgba(109, 206, 255, 0.15)",
-                        "0 0 48px rgba(109, 206, 255, 0.45)",
-                        "0 0 24px rgba(109, 206, 255, 0.15)",
-                      ],
-                    }
-              }
-              transition={{
-                duration: 4,
-                repeat: Infinity,
-                ease: "easeInOut",
-                delay: 1.4,
-              }}
-            >
-              <SplitText text="cold." delay={0.85} />
-            </motion.span>
-          </h1>
-
-          <motion.p
-            className="hero__intro"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 1.4, ease: EASE }}
-          >
-            ICEEIT is a contemporary clothing brand built around bold silhouettes,
-            clean energy and an unmistakable cold identity.
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 1.55, ease: EASE }}
-          >
-            <Button to="/shop">Shop the collection</Button>
-          </motion.div>
-        </motion.div>
-
-        <motion.div
-          className="hero__media"
-          initial={{ opacity: 0, scale: 1.08 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.4, ease: EASE, delay: 0.15 }}
-        >
-          <motion.div
-            style={{
-              y: reduced ? 0 : imageY,
-              scale: reduced ? 1 : imageScale,
-              height: "100%",
-              width: "100%",
-            }}
-          >
-            <ImagePlaceholder
-              src="https://res.cloudinary.com/ayodex-labs/image/upload/q_auto,f_auto/v1790871129/hero.jpg"
-              alt="ICEEIT campaign"
-              label="hero.jpg"
-            />
-          </motion.div>
-          <div className="hero__badge">FW25 · Streetwear</div>
-        </motion.div>
-      </section>
-
-      <section className="section section--tight">
-        <Stagger className="section-heading">
+      {/* Shop all — clear product discovery, real routes, real cart */}
+      <section className="v3-shopall section" aria-labelledby="v3-shopall-title">
+        <header className="v3-feature__head">
           <div>
-            <StaggerItem>
-              <p className="eyebrow">The edit</p>
-            </StaggerItem>
-            <StaggerItem>
-              <h2>
-                Pieces for the
-                <br />
-                rotation.
-              </h2>
-            </StaggerItem>
+            <p className="eyebrow">Shop all</p>
+            <h2 id="v3-shopall-title">Every piece in the rotation.</h2>
           </div>
-          <StaggerItem>
-            <Link to="/shop" className="text-link">
-              View all <ArrowRightIcon size={16} />
-            </Link>
-          </StaggerItem>
-        </Stagger>
-        <ProductGrid products={featured} />
-      </section>
-      <Lookbook />
-
-      <section className="category-strip">
-        {[
-          ["Tops", "/shop?category=Tops", "https://res.cloudinary.com/ayodex-labs/image/upload/q_auto,f_auto/v1790871129/look-roundneck-joggers.jpg"],
-          ["Bottoms", "/shop?category=Bottoms", "https://res.cloudinary.com/ayodex-labs/image/upload/q_auto,f_auto/v1790871128/look-jersey-joggers.jpg"],
-          ["Outerwear", "/shop?category=Outerwear", "https://res.cloudinary.com/ayodex-labs/image/upload/q_auto,f_auto/v1790871127/jacket-front.jpg"],
-        ].map(([name, to, img], i) => (
-          <motion.div
-            key={name}
-            className="category-card"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.15 }}
-            transition={{ delay: i * 0.08, duration: 0.65, ease: EASE }}
-          >
-            <Link to={to}>
-              <ImagePlaceholder
-                src={img}
-                alt={`${name} category`}
-                label={img.split("/").pop()}
-              />
-              <span>
-                {name}
-                <ArrowRightIcon size={18} />
-              </span>
-            </Link>
-          </motion.div>
-        ))}
+          <Link to="/shop" className="text-link">
+            Open the full shop →
+          </Link>
+        </header>
+        <ProductGrid products={products} />
+        <nav className="v3-shopall__links" aria-label="Shop by category">
+          <Link to="/shop?category=Tops">Tops</Link>
+          <Link to="/shop?category=Bottoms">Bottoms</Link>
+          <Link to="/shop?category=Outerwear">Outerwear</Link>
+          <Link to="/collections">Collections</Link>
+          <Link to="/about">About ICEEIT</Link>
+        </nav>
       </section>
 
-      <section className="statement">
-        <Stagger>
-          <StaggerItem>
-            <p className="eyebrow">The ICEEIT idea</p>
-          </StaggerItem>
-          <StaggerItem>
-            <h2>
-              Cold isn't a colour.
-              <br />
-              <span>It's an attitude.</span>
-            </h2>
-          </StaggerItem>
-          <StaggerItem>
-            <p>
-              We make pieces that sit between everyday comfort and statement dressing —
-              designed to be worn your way, but always with presence.
-            </p>
-          </StaggerItem>
-        </Stagger>
-      </section>
-
-      <section className="editorial">
-        <motion.div
-          className="editorial__media"
-          initial={{ opacity: 0, x: -35 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, amount: 0.15 }}
-          transition={{ duration: 0.75, ease: EASE }}
-        >
-          <ImagePlaceholder
-            src="https://res.cloudinary.com/ayodex-labs/image/upload/q_auto,f_auto/v1790871129/hero.jpg"
-            alt="ICEEIT editorial"
-            label="hero.jpg"
-          />
-        </motion.div>
-        <Reveal className="editorial__copy">
-          <p className="eyebrow">Built for the street</p>
-          <h2>
-            Less noise.
-            <br />
-            More presence.
-          </h2>
-          <p>
-            ICEEIT keeps the language simple: strong pieces, considered details and a
-            visual identity that doesn't need to shout.
-          </p>
-          <Button to="/about" variant="outline">
-            Our story
-          </Button>
-        </Reveal>
-      </section>
-
-      <Newsletter />
-    </div>
+      <ClosingStatement />
+    </article>
   );
 }

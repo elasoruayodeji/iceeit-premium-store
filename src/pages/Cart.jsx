@@ -4,8 +4,11 @@ import { ImagePlaceholder } from "../components/ImagePlaceholder";
 import { formatNaira } from "../data/products";
 import { MinusIcon, PlusIcon, TrashIcon } from "../components/Icons";
 import { Button } from "../components/Button";
+import { useSeo } from "../hooks/useSeo";
 
 export default function Cart() {
+  useSeo({ title: "Your Cart — ICEEIT", description: "Review your ICEEIT streetwear selection before checkout.", path: "/cart", robots: "noindex, follow" });
+
   const { items, subtotal, updateQuantity, removeItem } = useCart();
   return <div className="page">
     <div className="page-header"><p className="eyebrow">ICEEIT / CART</p><h1>Your selection.</h1></div>

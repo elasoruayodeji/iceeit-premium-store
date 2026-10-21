@@ -2,10 +2,13 @@ import { useState } from "react";
 import { site } from "../data/site";
 import { Button } from "../components/Button";
 import { Reveal } from "../components/Motion";
+import { useSeo } from "../hooks/useSeo";
 
 const FORMSPREE_URL = "https://formspree.io/f/mppwazrd";
 
 export default function Contact() {
+  useSeo({ title: "Contact ICEEIT — Streetwear Orders & Support in Nigeria", description: "Contact ICEEIT for orders, sizing or delivery questions. Email iceeit.orders@gmail.com, WhatsApp or Instagram — a Lagos-based streetwear brand serving Nigeria.", path: "/contact" });
+
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [status, setStatus] = useState("idle"); // idle | sending | sent | error
 

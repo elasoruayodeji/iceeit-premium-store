@@ -1,0 +1,13 @@
+# ICEEIT — https://github.com/elasoruayodeji/iceeit-premium-store
+# Sitemap URL is injected at build time (scripts/generate-sitemap.mjs).
+User-agent: *
+Allow: /
+
+# Private / transactional areas — excluded from the sitemap and served
+# with noindex meta tags. Disallow here as defence in depth.
+Disallow: /admin
+Disallow: /checkout
+Disallow: /cart
+
+# NOTE: robots.txt alone does not remove already-indexed URLs; the
+# noindex meta tags on those routes handle that once crawled.

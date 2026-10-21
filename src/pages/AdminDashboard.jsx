@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "../lib/supabaseClient";
+import { useSeo } from "../hooks/useSeo";
 
 const TABS = ["incoming", "pending", "settled"];
 
@@ -19,6 +20,8 @@ function whatsappLink(phone, order) {
 }
 
 export default function AdminDashboard() {
+  useSeo({ title: "Admin — ICEEIT", description: "Restricted area.", robots: "noindex, nofollow" });
+
   const navigate = useNavigate();
   const [checkingAuth, setCheckingAuth] = useState(true);
   const [orders, setOrders] = useState([]);

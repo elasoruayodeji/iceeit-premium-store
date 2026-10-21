@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDownIcon } from "../components/Icons";
+import { useSeo } from "../hooks/useSeo";
 
 const faqs = [
   ["How do I place an order?", "Choose a product, select any available colour, choose your quantity and add it to your cart. From your cart, continue to checkout and enter your delivery details."],
@@ -14,6 +15,8 @@ const faqs = [
 ];
 
 export default function FAQ() {
+  useSeo({ title: "FAQ — Ordering & Delivery | ICEEIT Streetwear Nigeria", description: "Answers to common ICEEIT questions: how to place an order, how delivery works in Nigeria, contact options and product details. Streetwear brand based in Lagos.", path: "/faq" });
+
   const [active, setActive] = useState(0);
   return <div className="page"><div className="page-header"><p className="eyebrow">ICEEIT / FAQ</p><h1>Questions,<br/>answered.</h1><p>Everything you need to know before placing an order.</p></div><div className="faq-list">{faqs.map(([q,a],i)=><div className={`faq-item ${active===i?"active":""}`} key={q}><button onClick={()=>setActive(active===i?-1:i)}><span>0{i+1}</span><strong>{q}</strong><ChevronDownIcon size={20}/></button><AnimatePresence initial={false}>{active===i&&<motion.div initial={{height:0,opacity:0}} animate={{height:"auto",opacity:1}} exit={{height:0,opacity:0}}><p>{a}</p></motion.div>}</AnimatePresence></div>)}</div></div>;
 }

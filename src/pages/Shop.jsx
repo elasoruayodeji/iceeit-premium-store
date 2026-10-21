@@ -3,6 +3,7 @@ import { useSearchParams } from "react-router-dom";
 import { ProductGrid } from "../components/ProductGrid";
 import { products, categories } from "../data/products";
 import { Reveal } from "../components/Motion";
+import { useSeo } from "../hooks/useSeo";
 
 // Case-insensitive category match
 function sameCategory(a, b) {
@@ -17,6 +18,13 @@ export default function Shop() {
     categories.some((c) => sameCategory(c, initial)) ? initial : "All"
   );
   const [sort, setSort] = useState("featured");
+
+  useSeo({
+    title: "Shop Streetwear Clothing in Nigeria — Jackets, Tops & Joggers | ICEEIT",
+    description:
+      "Browse the full ICEEIT streetwear collection — outerwear, tops and bottoms designed in Lagos, Nigeria. Filter by category and order online with nationwide delivery.",
+    path: "/shop",
+  });
 
   // Sync state when URL changes (e.g. user clicks a category link from homepage)
   useEffect(() => {

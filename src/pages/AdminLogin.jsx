@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "../lib/supabaseClient";
+import { useSeo } from "../hooks/useSeo";
 
 export default function AdminLogin() {
+  useSeo({ title: "Admin Login — ICEEIT", description: "Restricted area.", robots: "noindex, nofollow" });
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");

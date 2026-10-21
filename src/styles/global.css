@@ -34,7 +34,7 @@ img { display:block; max-width:100%; }
   align-items: center;
   position: relative;
   overflow: hidden;
-  background: radial-gradient(circle at 78% 42%, rgba(242,87,28,.14), transparent 34%);
+  background: radial-gradient(circle at 78% 42%, rgba(109,206,255,.10), transparent 34%);
 }
 .hero__copy { position:relative; z-index:2; max-width:680px; }
 .eyebrow { margin:0 0 12px; color:var(--color-muted); font-size:10px; text-transform:uppercase; letter-spacing:.18em; }
@@ -3150,4 +3150,251 @@ footer {
     width: 82vw !important;
     max-width: 320px !important;
   }
+}
+/* ============================================================
+   ICEEIT V3 — CINEMATIC IMMERSIVE STREETWEAR
+   New homepage composition styles. Appended so existing V2
+   rules remain untouched for other pages.
+   ============================================================ */
+
+.v3-home { overflow-x: clip; }
+
+/* ---------- 1. Cinematic hero ---------- */
+.v3-hero {
+  position: relative;
+  min-height: 100svh;
+  display: grid;
+  place-items: end start;
+  padding: clamp(48px,8vw,110px) clamp(20px,5vw,80px);
+  background: var(--color-bg);
+  overflow: hidden;
+}
+.v3-hero__media { position:absolute; inset:-6% -2%; z-index:0; will-change: transform; }
+.v3-hero__media img { width:100%; height:100%; object-fit:cover; object-position:center 30%; filter:saturate(.92) contrast(1.03); }
+/* V3.1 — lighter, targeted scrim: photo stays the star. Only a soft left
+   wash + bottom fade keep the headline readable; no full-image darkening. */
+.v3-hero__scrim {
+  position:absolute; inset:0;
+  background:
+    linear-gradient(97deg, rgba(7,7,10,.62) 0%, rgba(7,7,10,.28) 34%, rgba(7,7,10,0) 62%),
+    linear-gradient(0deg, rgba(7,7,10,.68), rgba(7,7,10,.12) 34%, transparent 55%);
+}
+.v3-hero__frame {
+  position:absolute; inset:clamp(14px,2.4vw,30px);
+  border:1px solid rgba(169,231,255,.16); z-index:2; pointer-events:none;
+}
+.v3-hero__copy { position:relative; z-index:3; max-width:min(92vw,980px); }
+.v3-hero__eyebrow { color:var(--color-accent-bright); letter-spacing:.3em; margin-bottom:22px; }
+.v3-hero__title {
+  margin:0; display:flex; flex-direction:column;
+  font:700 clamp(4.2rem,15vw,15rem)/.82 var(--font-display);
+  letter-spacing:-.07em; text-transform:uppercase;
+  text-shadow:0 2px 30px rgba(7,7,10,.55), 0 1px 4px rgba(7,7,10,.6);
+}
+.v3-hero__line--ghost { color:transparent; -webkit-text-stroke:1.5px rgba(244,245,247,.5); margin-left:.06em; }
+.v3-hero__line--accent { color:var(--color-accent-bright); }
+.v3-hero__intro { max-width:520px; color:#D6D8DE; text-shadow:0 1px 14px rgba(7,7,10,.65); font-size:clamp(15px,1.4vw,18px); margin:26px 0 34px; }
+.v3-hero__actions { display:flex; align-items:center; gap:clamp(18px,3vw,36px); flex-wrap:wrap; }
+.v3-hero__cta {
+  display:inline-flex; align-items:center; gap:16px;
+  background:var(--color-text); color:var(--color-bg);
+  padding:16px 26px; text-transform:uppercase; letter-spacing:.14em;
+  font-size:11px; font-weight:700; border:1px solid var(--color-text);
+  transition: background .3s var(--ease), color .3s var(--ease);
+}
+.v3-hero__cta:hover { background:var(--color-accent); border-color:var(--color-accent); color:var(--color-bg); }
+.v3-hero__secondary {
+  color:var(--color-text); text-transform:uppercase; letter-spacing:.14em; font-size:11px;
+  border-bottom:1px solid var(--color-line-strong); padding-bottom:6px;
+}
+.v3-hero__secondary:hover { color:var(--color-accent-bright); }
+.v3-hero__marquee {
+  position:absolute; left:0; right:0; bottom:10px; z-index:2; margin:0;
+  white-space:nowrap; overflow:hidden; text-align:center;
+  font:700 clamp(10px,1.1vw,13px) var(--font-body);
+  letter-spacing:.5em; color:rgba(244,245,247,.28); pointer-events:none;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .v3-hero__marquee { animation: v3-marquee 40s linear infinite; }
+  @keyframes v3-marquee { to { transform: translateX(-50%); } }
+}
+
+/* ---------- 2. Brand introduction ---------- */
+.v3-brand {
+  display:grid; grid-template-columns: 1.05fr .95fr; gap:clamp(30px,6vw,110px);
+  align-items:center; padding:clamp(80px,12vw,180px) clamp(20px,5vw,80px);
+  border-top:1px solid var(--color-line);
+}
+.v3-brand__title { margin:0 0 26px; font:600 clamp(2.6rem,6vw,6rem)/.9 var(--font-display); letter-spacing:-.06em; }
+.v3-brand__title span { color:var(--color-accent); }
+.v3-brand__copy { color:var(--color-muted); max-width:520px; font-size:16px; }
+.v3-brand__facts { list-style:none; display:flex; gap:clamp(20px,4vw,54px); padding:0; margin:38px 0 0; border-top:1px solid var(--color-line); padding-top:24px; }
+.v3-brand__facts li { display:flex; flex-direction:column; gap:4px; }
+.v3-brand__facts strong { font:600 clamp(1.2rem,2vw,1.9rem) var(--font-display); letter-spacing:-.03em; color:var(--color-text); }
+.v3-brand__facts span { font-size:10px; text-transform:uppercase; letter-spacing:.14em; color:var(--color-steel); }
+/* V3.1 — deliberate framed portrait: capped height, centered crop so the
+   column never stretches into an excessively tall image on wide screens. */
+.v3-brand__media { position:relative; justify-self:center; width:min(100%,480px); }
+.v3-brand__media img {
+  width:100%; aspect-ratio:4/5; max-height:62vh; object-fit:cover;
+  object-position:center 28%; display:block;
+  border:1px solid var(--color-line);
+}
+.v3-brand__tag {
+  position:absolute; left:-10px; bottom:22px; background:var(--color-bg);
+  border:1px solid var(--color-line-strong); color:var(--color-accent-bright);
+  font-size:9px; letter-spacing:.18em; text-transform:uppercase; padding:9px 14px;
+}
+
+/* ---------- 3. Featured collection ---------- */
+.v3-feature { padding:clamp(70px,10vw,150px) clamp(20px,5vw,80px); border-top:1px solid var(--color-line); }
+.v3-feature__head { display:flex; justify-content:space-between; align-items:end; gap:20px; margin-bottom:44px; }
+.v3-feature__head h2 { margin:0; font:500 clamp(2.2rem,5vw,5rem)/.92 var(--font-display); letter-spacing:-.06em; }
+.v3-feature__grid {
+  display:grid; gap:clamp(12px,1.6vw,22px);
+  grid-template-columns:repeat(6,1fr);
+  /* V3.1 — fixed poster rows: tiles can never grow excessively tall */
+  grid-auto-rows:clamp(240px,30vw,430px);
+}
+.v3-feature__tile { position:relative; overflow:hidden; background:var(--color-surface); min-height:220px; }
+.v3-feature__tile:nth-child(2) { grid-column:span 4; }
+.v3-feature__tile:nth-child(n+3) { grid-column:span 2; }
+.v3-feature__tile--lead { grid-row:span 2; grid-column:span 2; }
+.v3-feature__tile a { position:absolute; inset:0; display:block; }
+/* V3.1 — media is absolutely filled inside each tile (no intrinsic-size
+   stretching); per-tile object-position keeps the crop intentional. */
+.v3-feature__tile img, .v3-feature__tile video {
+  position:absolute; inset:0; width:100%; height:100%;
+  object-fit:cover; object-position:center 22%;
+  transition:transform .9s var(--ease);
+}
+.v3-feature__tile--lead img, .v3-feature__tile--lead video { object-position:center 18%; }
+.v3-feature__tile:nth-child(2) img, .v3-feature__tile:nth-child(2) video { object-position:center 30%; }
+.v3-feature__tile:hover img, .v3-feature__tile:hover video { transform:scale(1.045); }
+.v3-feature__overlay {
+  position:absolute; inset:auto 0 0 0; z-index:2; padding:20px;
+  display:flex; flex-direction:column; gap:4px;
+  background:linear-gradient(0deg,rgba(7,7,10,.88),transparent);
+  pointer-events:none;
+}
+.v3-feature__overlay h3 { margin:0; font:500 clamp(1.2rem,2vw,1.9rem) var(--font-display); letter-spacing:-.03em; }
+.v3-feature__price { display:flex; align-items:center; gap:8px; color:var(--color-accent-bright); font-size:12px; letter-spacing:.08em; }
+
+/* ---------- 4. Editorial campaign ---------- */
+.v3-editorial { border-top:1px solid var(--color-line); }
+.v3-editorial__head { padding:clamp(60px,9vw,120px) clamp(20px,5vw,80px) clamp(20px,3vw,40px); }
+.v3-editorial__head h2 { margin:0; font:600 clamp(2.8rem,7vw,7.5rem)/.9 var(--font-display); letter-spacing:-.07em; }
+.v3-editorial__panel {
+  display:grid; grid-template-columns:1.15fr .85fr; align-items:center;
+  gap:clamp(26px,5vw,80px); padding:clamp(40px,6vw,90px) clamp(20px,5vw,80px);
+  border-bottom:1px solid var(--color-line);
+}
+.v3-editorial__panel--flip .v3-editorial__media { order:2; }
+.v3-editorial__panel--flip .v3-editorial__copy { order:1; }
+.v3-editorial__media { overflow:hidden; }
+/* V3.1 — landscape editorial frames with capped viewport height: consistent
+   across image and video panels, no awkward vertical crops or tall sections */
+.v3-editorial__media img, .v3-editorial__media video {
+  width:100%; aspect-ratio:4/3; max-height:70vh; object-fit:cover;
+  object-position:center 25%; display:block;
+  border:1px solid var(--color-line);
+}
+.v3-editorial__copy h3 { margin:0 0 18px; font:500 clamp(1.8rem,3.6vw,3.4rem)/1 var(--font-display); letter-spacing:-.05em; }
+.v3-editorial__copy > p:not(.eyebrow) { color:var(--color-muted); max-width:420px; margin:0 0 26px; }
+
+/* ---------- 5. Shop all ---------- */
+.v3-shopall { border-top:1px solid var(--color-line); }
+.v3-shopall__links { display:flex; flex-wrap:wrap; gap:clamp(14px,2.5vw,34px); margin-top:44px; padding-top:22px; border-top:1px solid var(--color-line); }
+.v3-shopall__links a {
+  text-transform:uppercase; letter-spacing:.14em; font-size:11px; color:var(--color-muted);
+  transition:color .25s var(--ease);
+}
+.v3-shopall__links a:hover { color:var(--color-accent); }
+
+/* ---------- 6. Closing statement ---------- */
+.v3-closing { position:relative; min-height:78svh; display:grid; place-items:center; text-align:center; overflow:hidden; padding:clamp(70px,10vw,140px) 20px; }
+/* V3.1 — lighter closing treatment so the campaign photo reads clearly */
+.v3-closing__bg { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 35%; filter:saturate(.85) brightness(.68); }
+.v3-closing__scrim { position:absolute; inset:0; background:radial-gradient(ellipse at 50% 45%, rgba(7,7,10,.25), rgba(7,7,10,.72)); }
+.v3-closing__inner { position:relative; z-index:2; text-shadow:0 2px 24px rgba(7,7,10,.6); }
+.v3-closing__title { margin:0 0 22px; font:600 clamp(2.8rem,8vw,8rem)/.88 var(--font-display); letter-spacing:-.07em; }
+.v3-closing__title span { color:var(--color-accent); }
+.v3-closing__copy { color:var(--color-muted); max-width:520px; margin:0 auto 34px; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 980px) {
+  .v3-brand, .v3-editorial__panel { grid-template-columns:1fr; }
+  .v3-editorial__panel--flip .v3-editorial__media { order:0; }
+  .v3-editorial__panel--flip .v3-editorial__copy { order:1; }
+  .v3-feature__grid { grid-template-columns:repeat(2,1fr); }
+  .v3-feature__tile--lead { grid-column:span 2; grid-row:span 1; min-height:340px; }
+  .v3-feature__tile:nth-child(2) { grid-column:span 2; }
+  .v3-feature__tile:nth-child(n+3) { grid-column:span 1; }
+}
+@media (max-width: 620px) {
+  .v3-hero { place-items:end center; text-align:left; }
+  .v3-hero__frame { display:none; }
+  .v3-brand__facts { flex-wrap:wrap; gap:18px; }
+  .v3-feature__grid { grid-template-columns:1fr; }
+  .v3-feature__tile, .v3-feature__tile--lead, .v3-feature__tile:nth-child(2), .v3-feature__tile:nth-child(n+3) { grid-column:span 1; min-height:300px; }
+}
+
+/* V3 — product breadcrumb + crawlable note */
+.product-breadcrumb { font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--color-steel); margin-bottom:28px; }
+.product-breadcrumb a { color:var(--color-muted); }
+.product-breadcrumb a:hover { color:var(--color-accent); }
+.product-seo-note { margin-top:26px; padding-top:18px; border-top:1px solid var(--color-line); color:var(--color-steel); font-size:12px; line-height:1.7; }
+.product-seo-note a { color:var(--color-accent-bright); text-decoration:underline; }
+
+/* =========================================================
+   ICEEIT V3.1 — Site-wide cinematic coherence layer
+   Homepage-only .v3-* rules above; these extend the same art
+   direction (dark foundation, ice accents, editorial type) to
+   every storefront route without touching functionality.
+   ========================================================= */
+
+/* 1. Kill leftover warm-orange tints on the dark foundation */
+.hero { background:radial-gradient(circle at 78% 42%, rgba(109,206,255,.08), transparent 38%); }
+.image-placeholder__fallback { background:radial-gradient(circle at 50% 40%,rgba(109,206,255,.10),transparent 42%),linear-gradient(135deg,var(--color-surface),var(--color-surface-2)); }
+
+/* 2. Editorial page headers — ghost-stroke second word like the hero */
+.page-header h1, .collection-hero h1, .about-hero h1 { text-transform:uppercase; letter-spacing:-.06em; }
+.page-header h1 span, .collection-hero h1 span, .about-hero h1 span { color:transparent; -webkit-text-stroke:1px rgba(169,231,255,.55); }
+.page-header > p:last-child { max-width:600px; }
+
+/* 3. Shop controls & filter tabs — restrained ice treatment */
+.shop-controls { border-top-color:rgba(169,231,255,.14); border-bottom-color:rgba(169,231,255,.14); }
+.filter-tabs button:hover { color:var(--color-text); border-color:var(--color-line-strong); }
+.filter-tabs button.active { color:var(--color-bg); background:var(--color-accent); border-color:var(--color-accent); }
+
+/* 4. Product cards — cinematic hover lift + frost edge (CSS only,
+      respects reduced motion via transition-only change) */
+.product-card { transition:transform .5s var(--ease); }
+.product-card:hover { transform:translateY(-4px); }
+.product-card__media { border:1px solid transparent; transition:border-color .5s var(--ease); }
+.product-card:hover .product-card__media { border-color:rgba(169,231,255,.28); }
+.product-card__meta strong { color:var(--color-accent-bright); }
+
+/* 5. Product detail — framed gallery, accent breadcrumb */
+.product-gallery__main { border:1px solid var(--color-line); aspect-ratio:4/5; max-height:82vh; overflow:hidden; }
+.product-info h1 { text-transform:uppercase; letter-spacing:-.05em; }
+.product-price { color:var(--color-accent-bright); font-weight:600; }
+
+/* 6. Cart drawer / cart page / checkout — quiet editorial polish */
+.cart-drawer__header h2, .empty-page h2, .not-found h1 { text-transform:uppercase; letter-spacing:-.04em; }
+.cart-drawer { box-shadow:-30px 0 80px rgba(0,0,0,.55); }
+.summary { border:1px solid rgba(169,231,255,.16); }
+
+/* 7. FAQ + contact — accent questions, readable answers */
+.faq-item button { letter-spacing:.01em; }
+.faq-item button:hover { color:var(--color-accent-bright); }
+
+/* 8. Announcement bar + footer — cohesive cold base */
+.announcement { color:var(--color-accent-bright); background:rgba(109,206,255,.05); letter-spacing:.22em; }
+.footer__links a:hover { color:var(--color-accent); }
+.brand { text-transform:uppercase; letter-spacing:.02em; }
+
+@media (max-width: 620px) {
+  .v3-brand__media { width:100%; }
+  .v3-editorial__media img, .v3-editorial__media video { aspect-ratio:4/5; max-height:none; }
 }
