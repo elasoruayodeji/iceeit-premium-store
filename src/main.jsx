@@ -23,6 +23,7 @@ import Contact from "./pages/Contact";
 import FAQ from "./pages/FAQ";
 import NotFound from "./pages/NotFound";
 import "./styles/global.css";
+// SEO: per-route metadata + global structured data are applied via the useSeo hook in each page.
 
 // Scroll to top whenever the route changes
 function ScrollToTop() {

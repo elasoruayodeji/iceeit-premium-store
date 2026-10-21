@@ -5,10 +5,13 @@ import { ProductGrid } from "../components/ProductGrid";
 import { products } from "../data/products";
 import { Reveal } from "../components/Motion";
 import { Button } from "../components/Button";
+import { useSeo } from "../hooks/useSeo";
 
 const EASE = [0.22, 1, 0.36, 1];
 
 export default function Collections() {
+  useSeo({ title: "Collections — FW25 Streetwear Looks by ICEEIT | Lagos, Nigeria", description: "Explore ICEEIT collections and lookbook styling. See how jackets, jerseys, round necks and double band joggers are worn together — streetwear designed in Lagos, Nigeria.", path: "/collections" });
+
   return (
     <div className="page">
       {/* ============ Collection hero ============ */}

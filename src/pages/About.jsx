@@ -1,8 +1,11 @@
 import { ImagePlaceholder } from "../components/ImagePlaceholder";
 import { Button } from "../components/Button";
 import { Reveal } from "../components/Motion";
+import { useSeo } from "../hooks/useSeo";
 
 export default function About() {
+  useSeo({ title: "About ICEEIT — Lagos Streetwear Brand | Wear the Cold", description: "ICEEIT is a Lagos-based streetwear and clothing brand serving Nigeria, designing bold silhouettes with a cold identity. Read about the brand behind Wear the Cold.", path: "/about" });
+
   return (
     <div className="page">
       <section className="about-hero">

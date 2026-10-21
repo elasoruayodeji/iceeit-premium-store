@@ -5,6 +5,7 @@ import { useCart } from "../context/CartContext";
 import { formatNaira } from "../data/products";
 import { Button } from "../components/Button";
 import { supabase } from "../lib/supabaseClient";
+import { useSeo } from "../hooks/useSeo";
 
 const PAYSTACK_PUBLIC_KEY = "pk_test_5ba40cb33253c4f6ce6a35efcfc7aaef7c63fdd1";
 const FORMSPREE_URL = "https://formspree.io/f/mppwazrd";
@@ -59,6 +60,8 @@ const stateCities = {
 const states = Object.keys(stateCities);
 
 export default function Checkout() {
+  useSeo({ title: "Checkout — ICEEIT", description: "Complete your ICEEIT order securely.", path: "/checkout", robots: "noindex, nofollow" });
+
   const { items, subtotal, clearCart } = useCart();
   const formRef = useRef(null);
 
